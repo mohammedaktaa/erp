@@ -12,7 +12,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+    headers = headers.append('Authorization', `Bearer ${localStorage.getItem('accessToken')}`);
     const apiReq = request.clone({
       url: request.url.startsWith('http') ? request.url : `${environment.baseURL}${request.url}`,
       headers,
