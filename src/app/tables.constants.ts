@@ -36,7 +36,7 @@ export const TABLES: TableStruct[] = [
         except: false
       }
     ],
-    api: 'auth/users'
+    api: 'api/auth/users'
   },
   {
     slug: 'roles',
@@ -55,7 +55,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'auth/roles'
+    api: 'api/auth/roles'
   },
   {
     slug: 'permissions',
@@ -80,7 +80,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'auth/permissions'
+    api: 'api/auth/permissions'
   },
   {
     slug: 'employees',
