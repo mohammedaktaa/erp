@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
         throw Error(error);
       })).subscribe((res) => {
         this.userService.setToken(res.accessToken);
-        this.router.navigate(['/dashboard']);
+        this.router.navigateByUrl('/dashboard');
       }, error => {
         console.log(error);
       });
