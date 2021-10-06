@@ -20,14 +20,14 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
     resolve: {user: AuthenticatedUserResolver},
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: {animationState: 'DASHBOARD'}
   },
   {
     path: 'entities',
     loadChildren: () => import('./modules/entities/entities.module').then(m => m.EntitiesModule),
     resolve: {user: AuthenticatedUserResolver},
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: {animationState: 'ENTITIES'}
   },
 
