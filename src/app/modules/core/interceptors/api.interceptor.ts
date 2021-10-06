@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {UserService} from '../../auth/services/user.service';
@@ -11,14 +11,12 @@ export class ApiInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (!request.url.startsWith('http')) {
-      request = request.clone({
-        url: `${environment.baseURL}${request.url}`,
-        setHeaders: {
-          Authorization: 'Bearer ' + this.userService.getToken(),
-        }
-      });
-    }
-    return next.handle(request);
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+    const apiReq = request.clone({
+      url: request.url.startsWith('http') ? request.url : `${environment.baseURL}${request.url}`,
+      headers,
+    });
+    return next.handle(apiReq);
   }
 }
