@@ -11,7 +11,7 @@
         <li *ngFor="let child of currentModule.children" class="flex items-center mb-2">
           <span class="w-2 h-2 inline-block rounded-full bg-blue-600 mr-2"></span>
           <a class="transition hover:text-gray-600" *ngIf="!child.external" routerLink="/entities/{{child.slug}}">{{child.name}}</a>
-          <a class="transition hover:text-gray-600" *ngIf="child.external" routerLink="/components/{{child.slug}}">{{child.name}}</a>
+          <a class="transition hover:text-gray-600" *ngIf="child.external" href="{{child.link}}">{{child.name}}</a>
         </li>
       </ul>
     </div>

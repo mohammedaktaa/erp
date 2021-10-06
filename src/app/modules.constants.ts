@@ -29,12 +29,14 @@ export const MODULES = [
       {
         name: 'Connections',
         slug: 'connections',
-        external: true
+        external: true,
+        link: 'http://localhost:9411'
       },
       {
         name: 'Messages',
         slug: 'messages',
-        external: true
+        external: true,
+        link: 'http://localhost:8161'
       },
     ],
     complex: false,

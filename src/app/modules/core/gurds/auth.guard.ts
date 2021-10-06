@@ -15,12 +15,13 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!localStorage.getItem('accessToken')) {
+      this.router.parseUrl('/auth/sign-in');
       return of(false);
     }
     return this.userService.authenticatedUser().pipe(map((user): any => {
       return of(true);
     }), catchError((error: any) => {
-      this.router.navigate(['/auth/sign-in']);
+      this.router.parseUrl('/auth/sign-in');
       return of(false);
     }));
   }
