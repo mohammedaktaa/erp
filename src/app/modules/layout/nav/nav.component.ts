@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../auth/services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  user = null;
+  opened = false;
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
+    this.userService.user.asObservable().subscribe(user => {
+      if (user) {
+        this.user = user;
+      }
+    });
   }
 
 }

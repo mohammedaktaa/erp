@@ -14,12 +14,12 @@ export class AuthenticatedUserResolver implements Resolve<boolean> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.userService.authenticatedUser().pipe(map((user): any => {
       // @ts-ignore
-      this.userService.user = user;
+      this.userService.user.next(user);
       return of(true);
     }), catchError((error: any) => {
       // @ts-ignore
       // this.userService.user = {id: 6, username: 'Ahmad', email: 'ahmad@hotmail.com', roles: [{id: 4, name: 'ROLE_GEN_MAN'}]};
-      this.userService.user = null;
+      this.userService.user.next(null);
       return of(true);
     }));
   }

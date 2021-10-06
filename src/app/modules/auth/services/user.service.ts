@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Apis} from '../../core/enums/apis.enum';
 
 interface UserResponse {
@@ -25,7 +25,7 @@ interface Role {
   providedIn: 'root'
 })
 export class UserService {
-  user: UserResponse = {} as UserResponse;
+  user = new BehaviorSubject({} as UserResponse);
 
   constructor(private http: HttpClient) {
   }

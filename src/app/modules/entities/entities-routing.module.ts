@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {EntitiesComponent} from './entities.component';
 import {FormComponent} from './containers/form/form.component';
 import {ListComponent} from './containers/list/list.component';
+import {AuthGuard} from '../core/gurds/auth.guard';
 
 const routes: Routes = [
   {
     path: ':entity',
     component: EntitiesComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
