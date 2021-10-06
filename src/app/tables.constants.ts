@@ -36,7 +36,7 @@ export const TABLES: TableStruct[] = [
         except: false
       }
     ],
-    api: 'api/auth/users'
+    api: 'auth/users'
   },
   {
     slug: 'roles',
@@ -55,7 +55,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/auth/roles'
+    api: 'auth/roles'
   },
   {
     slug: 'permissions',
@@ -80,7 +80,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/auth/permissions'
+    api: 'auth/permissions'
   },
   {
     slug: 'employees',
@@ -141,7 +141,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/employees/all'
+    api: 'hr_service/employees/all'
   },
   {
     slug: 'department',
@@ -160,7 +160,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/departments/all'
+    api: 'hr_service/departments/all'
   },
   {
     slug: 'designation',
@@ -179,7 +179,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/departments/all'
+    api: 'hr_service/departments/all'
   },
   {
     slug: 'grade',
@@ -198,7 +198,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/grade/all'
+    api: 'hr_service/grade/all'
   },
   {
     slug: 'attendance',
@@ -229,7 +229,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/attendance/all'
+    api: 'hr_service/attendance/all'
   },
   {
     slug: 'attendance-type',
@@ -248,7 +248,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/attendance-type/all'
+    api: 'hr_service/attendance-type/all'
   },
   {
     slug: 'leaves',
@@ -291,7 +291,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/leaves/all'
+    api: 'hr_service/leaves/all'
   },
   {
     slug: 'leaves-type',
@@ -310,7 +310,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/leaves-type/all'
+    api: 'hr_service/leaves-type/all'
   },
   {
     slug: 'month-salary',
@@ -347,7 +347,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/month-salary/all'
+    api: 'hr_service/month-salary/all'
   },
   {
     slug: 'job-offer',
@@ -384,7 +384,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/job-offer/all'
+    api: 'hr_service/job-offer/all'
   },
   {
     slug: 'job-applicant',
@@ -439,7 +439,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/hr_service/job-applicant/all'
+    api: 'hr_service/job-applicant/all'
   },
   {
     slug: 'sales-invoice',
@@ -494,7 +494,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/finance_service/sales-invoice/all'
+    api: 'finance_service/sales-invoice/all'
   },
   {
     slug: 'customer',
@@ -543,7 +543,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/finance_service/customer/all'
+    api: 'finance_service/customer/all'
   },
   {
     slug: 'purchase-invoice',
@@ -598,7 +598,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/finance_service/purchase-invoice/all'
+    api: 'finance_service/purchase-invoice/all'
   },
   {
     slug: 'supplier',
@@ -647,7 +647,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'api/finance_service/supplier/all'
+    api: 'finance_service/supplier/all'
   },
   {
     slug: 'payroll',
@@ -691,6 +691,6 @@ export const TABLES: TableStruct[] = [
       },
 
     ],
-    api: 'api/finance_service/payroll/all'
+    api: 'finance_service/payroll/all'
   },
 ];
