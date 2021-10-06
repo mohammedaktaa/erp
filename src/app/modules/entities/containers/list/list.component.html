@@ -1,0 +1,101 @@
+<div *ngIf="message"
+     class="fixed top-3 right-3 alert flex flex-row items-center bg-red-200 px-5 py-3 rounded border-b-2 border-red-300">
+  <div
+    class="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+				<span class="text-red-500">
+					<svg class="h-6 w-6"
+               fill="currentColor"
+               viewBox="0 0 20 20">
+						<path clip-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  fill-rule="evenodd"></path>
+					</svg>
+				</span>
+  </div>
+  <div class="alert-content ml-4">
+    <div class="alert-title font-semibold text-lg text-red-800">
+      Error
+    </div>
+    <div class="alert-description text-sm text-red-600">
+      {{message}}
+    </div>
+  </div>
+</div>
+<div class="flex justify-between items-center mb-3 px-1">
+  <h3 class="text-gray-700 font-semibold">{{title}}</h3>
+  <div class="flex">
+    <button
+      (click)="getData()"
+      [disabled]="fetching"
+      class="px-5 flex items-center py-2 text-sm rounded mx-2 shadow bg-main text-white transition-colors hover:bg-main-700 {{fetching?'cursor-not-allowed bg-main-700':''}}">
+      <svg *ngIf="fetching" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              fill="currentColor"></path>
+      </svg>
+      {{fetching ? 'Reloading...' : 'Reload'}}
+    </button>
+    <a
+      class="px-5 flex items-center py-2 text-sm rounded mx-2 shadow bg-yellow-400 text-gray-800 transition-colors hover:bg-yellow-300 "
+      routerLink="/entities/{{entity}}/add">
+      Add
+    </a>
+  </div>
+</div>
+<div class="flex-auto relative p-1">
+  <div
+    *ngIf="fetching"
+    class="absolute inset-0 bg-white bg-opacity-75 cursor-not-allowed w-full h-full z-10 flex items-center justify-center">
+    <svg class="animate-spin h-16 w-16 text-main" fill="none"
+         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            fill="currentColor"></path>
+    </svg>
+  </div>
+  <div class="block w-full overflow-x-auto shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead class="bg-gray-50">
+      <tr>
+        <th *ngFor="let column of columns"
+            class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+          {{column.title}}
+        </th>
+        <th
+          class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+          <span class="sr-only">Actions</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let it of data;let last = last">
+        <td *ngFor="let column of columns"
+            class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+          <span *ngIf="column.type === 'bool'"><span
+            class="rounded-lg px-2 py-1 font-semibold {{it[column.name]?'text-green-500 bg-green-100':'text-red-500 bg-red-100'}}">{{it[column.name] ? 'Yes' : 'No'}}</span></span>
+          <span *ngIf="column.type === 'date'">{{it[column.name] | date:'medium'}}</span>
+          <span *ngIf="column.type === 'text' || column.type === 'int'">{{it[column.name]}}</span>
+          <span *ngIf="column.type === 'number'">{{it[column.name] | number}}</span>
+          <ul *ngIf="column.type === 'array'">
+            <li *ngFor="let i of it[column.name]">{{i.name}}</li>
+          </ul>
+        </td>
+        <td
+          class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+          <a class="text-indigo-600 hover:text-indigo-900 mr-3" href="javascript:void(0)"
+             routerLink="/entities/{{entity}}/edit/{{it.id}}">Edit</a>
+          <a class="text-red-600 hover:text-red-900" href="javascript:void(0)">Delete</a>
+        </td>
+      </tr>
+      <tr *ngIf="!data.length">
+        <td class="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
+            colspan="4">No Data yet.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
