@@ -7,7 +7,7 @@ import {AuthGuard} from "./modules/core/gurds/auth.guard";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/list',
+    redirectTo: 'auth/sign-in',
     pathMatch: 'full'
   },
   {

@@ -19,9 +19,9 @@ export class GuestGuard implements CanActivate {
 
     return this.userService.authenticatedUser().pipe(map((user): any => {
       this.router.navigateByUrl('/dashboard');
-      return of(true);
-    }), catchError((error: any) => {
       return of(false);
+    }), catchError((error: any) => {
+      return of(true);
     }));
   }
 
