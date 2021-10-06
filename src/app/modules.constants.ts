@@ -11,6 +11,10 @@ export const MODULES = [
         name: 'Permissions',
         slug: 'permissions'
       },
+      {
+        name: 'Roles',
+        slug: 'roles'
+      },
     ],
     complex: false,
     admin: true,
