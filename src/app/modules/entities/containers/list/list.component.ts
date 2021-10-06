@@ -12,22 +12,7 @@ import {catchError} from 'rxjs/operators';
 export class ListComponent implements OnInit {
   fetching = false;
   columns = [];
-  data = [
-    {
-      id: 81,
-      year: '2021',
-      month: '01',
-      amount: 5500.0,
-      employee_name: 'Ahmad'
-    },
-    {
-      id: 82,
-      year: '2021',
-      month: '01',
-      amount: 2000.0,
-      employee_name: 'Juman'
-    }
-  ];
+  data = [];
   tables = TABLES;
   entity = '';
   title = '';

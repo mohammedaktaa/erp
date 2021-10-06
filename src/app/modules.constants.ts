@@ -69,17 +69,17 @@ export const MODULES = [
       {
         name: 'Employees',
         children: [
-          {name: 'Employee', slug: 'employee'},
-          {name: 'Departments', slug: 'departments'},
-          {name: 'Designations', slug: 'designations'},
-          {name: 'Grades', slug: 'grades'},
+          {name: 'Employee', slug: 'employees'},
+          {name: 'Departments', slug: 'department'},
+          {name: 'Designations', slug: 'designation'},
+          {name: 'Grades', slug: 'grade'},
         ]
       },
       {
         name: 'Attendance',
         children: [
           {name: 'Attendance', slug: 'attendance'},
-          {name: 'Attendance Types', slug: 'attendance-types'},
+          {name: 'Attendance Types', slug: 'attendance-type'},
         ]
       },
       {
@@ -87,7 +87,7 @@ export const MODULES = [
         children: [
           {name: 'Leaves', slug: 'leaves'},
           {name: 'Leave Approval', slug: 'leave-approval'},
-          {name: 'Leave Types', slug: 'leave-types'},
+          {name: 'Leave Types', slug: 'leave-type'},
         ]
       },
       {
@@ -99,8 +99,8 @@ export const MODULES = [
       {
         name: 'Recruitment',
         children: [
-          {name: 'Job offers', slug: 'job-offers'},
-          {name: 'Job Applicants', slug: 'job-applicants'},
+          {name: 'Job offers', slug: 'job-offer'},
+          {name: 'Job Applicants', slug: 'job-applicant'},
         ]
       },
     ],

@@ -144,8 +144,27 @@ export const TABLES: TableStruct[] = [
     api: 'api/hr_service/employees/all'
   },
   {
-    slug: 'departments',
+    slug: 'department',
     title: 'Departments',
+    columns: [
+      {
+        name: 'id',
+        title: 'ID',
+        type: 'int',
+        except: true
+      },
+      {
+        name: 'name',
+        title: 'Name',
+        type: 'text',
+        except: false
+      },
+    ],
+    api: 'api/hr_service/departments/all'
+  },
+  {
+    slug: 'designation',
+    title: 'Designations',
     columns: [
       {
         name: 'id',
