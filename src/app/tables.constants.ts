@@ -305,11 +305,13 @@ export const TABLES: TableStruct[] = [
         actions: [
           {
             name: 'Reject',
-            slug: 'reject'
+            slug: 'reject',
+            color: 'red',
           },
           {
             name: 'Accept',
-            slug: 'accept'
+            slug: 'accept',
+            color: 'indigo',
           },
         ]
       }

@@ -13,7 +13,26 @@ export class ListComponent implements OnInit {
   fetching = false;
   columns = [];
   rowActions = [];
-  data = [];
+  data = [
+    {
+      id: 1,
+      submit_date: '2021-09-29T19:31:01.000+00:00',
+      start_date: '2020-01-05T00:00:00.000+00:00',
+      end_date: '2020-01-07T00:00:00.000+00:00',
+      employee_name: 'Motaz',
+      approval: 'hr_manager',
+      type: 'study'
+    },
+    {
+      id: 7,
+      submit_date: '2020-01-01T00:00:00.000+00:00',
+      start_date: '2020-01-05T00:00:00.000+00:00',
+      end_date: '2020-01-07T00:00:00.000+00:00',
+      employee_name: 'Motaz',
+      approval: 'hr_manager',
+      type: 'sick'
+    }
+  ];
   tables = TABLES;
   entity = '';
   title = '';

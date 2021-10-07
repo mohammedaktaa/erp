@@ -7,5 +7,8 @@ export enum Apis {
   EMPLOYEE_PROFILE = 'hr_service/employees/get/',
   LEAVE_TYPES = 'hr_service/leave-type/all',
   SUBMIT_LEAVE = 'hr_service/leaves/submit',
+  REJECT_LEAVE = 'hr_service/leaves/reject/',
+  ACCEPT_LEAVE = 'hr_service/leaves/accept/',
+  GET_LEAVE = 'hr_service/leaves/get/',
 
 }

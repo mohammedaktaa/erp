@@ -40,13 +40,13 @@
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Last Name:</span><span
               class="w-1/2 text-gray-600">{{user.lastName}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Date Of Birth:</span><span
-              class="w-1/2 text-gray-600">{{user.dateOfBirth | date:'MM/dd/yy'}}</span></div>
+              class="w-1/2 text-gray-600">{{user.dateOfBirth | date:'MM/dd/yyyy'}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Email:</span><span
               class="w-1/2 text-gray-600">{{user.email}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Joining Date:</span><span
-              class="w-1/2 text-gray-600">{{user.joiningDate | date:'MM/dd/yy'}}</span></div>
+              class="w-1/2 text-gray-600">{{user.joiningDate | date:'MM/dd/yyyy'}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Exit Date:</span><span
-              class="w-1/2 text-gray-600">{{user.exitDate | date:'MM/dd/yy'}}</span></div>
+              class="w-1/2 text-gray-600">{{user.exitDate | date:'MM/dd/yyyy'}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Address:</span><span
               class="w-1/2 text-gray-600">{{user.address}}</span></div>
             <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Contact:</span><span
@@ -150,15 +150,15 @@
             <tr *ngFor="let it of user.leavesList;let last = last">
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
-                {{it.submit_date | date:'MM/dd/yy'}}
+                {{it.submit_date | date:'MM/dd/yyyy'}}
               </td>
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
-                {{it.start_date | date:'MM/dd/yy'}}
+                {{it.start_date | date:'MM/dd/yyyy'}}
               </td>
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
-                {{it.end_date | date:'MM/dd/yy'}}
+                {{it.end_date | date:'MM/dd/yyyy'}}
               </td>
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">

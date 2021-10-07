@@ -23,4 +23,14 @@ export class LeavesService {
   submitLeave(data): Observable<string> {
     return this.http.post<string>(Apis.SUBMIT_LEAVE, data);
   }
+
+  rejectLeave(id): Observable<string> {
+    return this.http.get<string>(Apis.REJECT_LEAVE + id);
+  }
+
+  acceptLeave(id): Observable<string> {
+    return this.http.get<string>(Apis.ACCEPT_LEAVE + id);
+  }
+
+
 }

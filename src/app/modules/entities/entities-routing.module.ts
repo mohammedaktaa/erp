@@ -4,6 +4,7 @@ import {EntitiesComponent} from './entities.component';
 import {FormComponent} from './containers/form/form.component';
 import {ListComponent} from './containers/list/list.component';
 import {AuthGuard} from '../core/gurds/auth.guard';
+import {ViewComponent} from "./containers/view/view.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: 'view/:id',
-        component: FormComponent,
+        component: ViewComponent,
         data: {animationState: 'ENTITIES_EDIT'}
       },
     ]
