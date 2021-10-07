@@ -2,6 +2,7 @@ interface TableStruct {
   slug: string;
   title: string;
   columns: Column[];
+  rowActions?: any[];
   api: string;
 }
 
@@ -290,6 +291,12 @@ export const TABLES: TableStruct[] = [
         type: 'text',
         except: false
       },
+    ],
+    rowActions: [
+      {
+        name: 'View',
+        link: '/entities/:entity/view/'
+      }
     ],
     api: 'hr_service/leaves/all'
   },

@@ -85,6 +85,8 @@
         </td>
         <td
           class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+          <a class="text-indigo-600 hover:text-indigo-900 mr-3" href="javascript:void(0)" *ngFor="let action of rowActions"
+             routerLink="{{action.link}}{{it.id}}">{{action.name}}</a>
           <a class="text-indigo-600 hover:text-indigo-900 mr-3" href="javascript:void(0)"
              routerLink="/entities/{{entity}}/edit/{{it.id}}">Edit</a>
           <a class="text-red-600 hover:text-red-900" href="javascript:void(0)">Delete</a>

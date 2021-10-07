@@ -53,4 +53,8 @@ export class UserService {
   setToken(token): void {
     localStorage.setItem('accessToken', token);
   }
+
+  logout(): void {
+    localStorage.removeItem('accessToken');
+  }
 }

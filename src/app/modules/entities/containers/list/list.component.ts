@@ -12,6 +12,7 @@ import {catchError} from 'rxjs/operators';
 export class ListComponent implements OnInit {
   fetching = false;
   columns = [];
+  rowActions = [];
   data = [];
   tables = TABLES;
   entity = '';
@@ -28,6 +29,9 @@ export class ListComponent implements OnInit {
         this.entity = params.get('entity');
         if ([...this.tables].find(_ => _.slug === params.get('entity'))) {
           this.columns = [...this.tables].find(_ => _.slug === params.get('entity')).columns;
+          // @ts-ignore
+          this.rowActions = [...this.tables].find(_ => _.slug === params.get('entity'))?.rowActions.
+          forEach(_ => _.link.replace(':entity', params.get('entity')));
           this.api = [...this.tables].find(_ => _.slug === params.get('entity')).api;
           this.title = [...this.tables].find(_ => _.slug === params.get('entity')).title;
           this.getData();
