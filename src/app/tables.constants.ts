@@ -105,7 +105,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
       {
-        name: 'isActive',
+        name: 'active',
         title: 'Active?',
         type: 'bool',
         except: false
@@ -307,6 +307,12 @@ export const TABLES: TableStruct[] = [
         name: 'name',
         title: 'Name',
         type: 'text',
+        except: false
+      },
+      {
+        name: 'max_number',
+        title: 'Max Number (days)',
+        type: 'number',
         except: false
       },
     ],
@@ -683,18 +689,6 @@ export const TABLES: TableStruct[] = [
         type: 'number',
         except: false
       },
-      {
-        name: 'contact',
-        title: 'Contact',
-        type: 'text',
-        except: false
-      },
-      {
-        name: 'company',
-        title: 'Company',
-        type: 'text',
-        except: false
-      },
     ],
     api: 'finance_service/journal-entry/all'
   },
@@ -709,7 +703,7 @@ export const TABLES: TableStruct[] = [
         except: true
       },
       {
-        name: 'fullName',
+        name: 'full_name',
         title: 'Full Name',
         type: 'text',
         except: false
