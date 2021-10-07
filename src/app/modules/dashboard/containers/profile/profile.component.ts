@@ -86,7 +86,7 @@ export class ProfileComponent implements OnInit {
   submitLeave(): void {
     this.isSubmitted = true;
     if (this.form.type && this.form.end_date && this.form.start_date) {
-      this.leavesService.submitLeave().subscribe(res => {
+      this.leavesService.submitLeave(this.form).subscribe(res => {
         this.isSubmitted = false;
         this.form = {
           start_date: '',
@@ -97,9 +97,11 @@ export class ProfileComponent implements OnInit {
         this.message = res;
         this.isErrorRes = false;
         this.getProfile();
+        setTimeout(() => this.message = '', 5000);
       }, error => {
         this.message = error.message;
         this.isErrorRes = true;
+        setTimeout(() => this.message = '', 5000);
       });
     }
   }

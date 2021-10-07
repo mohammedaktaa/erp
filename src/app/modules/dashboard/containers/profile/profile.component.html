@@ -1,3 +1,27 @@
+<div *ngIf="message"
+     class="fixed top-3 right-3 alert flex flex-row items-center bg-{{isErrorRes?'red':'green'}}-200 px-5 py-3 rounded border-b-2 border-{{isErrorRes?'red':'green'}}-300">
+  <div
+    class="alert-icon flex items-center bg-{{isErrorRes?'red':'green'}}-100 border-2 border-{{isErrorRes?'red':'green'}}-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+				<span class="text-{{isErrorRes?'red':'green'}}-500">
+					<svg class="h-6 w-6"
+               fill="currentColor"
+               viewBox="0 0 20 20">
+						<path clip-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  fill-rule="evenodd"></path>
+					</svg>
+				</span>
+  </div>
+  <div class="alert-content ml-4">
+    <div class="alert-title font-semibold text-lg text-{{isErrorRes?'red':'green'}}-800">
+      Error
+    </div>
+    <div class="alert-description text-sm text-{{isErrorRes?'red':'green'}}-600">
+      {{message}}
+    </div>
+  </div>
+</div>
+
 <div>
   <div class=" md:gap-6">
     <div class="mt-5 md:mt-0 ">
@@ -114,7 +138,7 @@
               </th>
               <th
                 class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                Employee name
+                Approval
               </th>
               <th
                 class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -138,7 +162,7 @@
               </td>
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
-                {{it.employee_name}}
+                {{it.approval}}
               </td>
               <td
                 class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">

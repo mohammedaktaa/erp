@@ -286,6 +286,12 @@ export const TABLES: TableStruct[] = [
         except: false
       },
       {
+        name: 'approval',
+        title: 'Approval',
+        type: 'text',
+        except: false
+      },
+      {
         name: 'type',
         title: 'Type',
         type: 'text',

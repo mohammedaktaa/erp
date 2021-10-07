@@ -20,7 +20,7 @@ export class LeavesService {
     return this.http.get<LeaveType[]>(Apis.LEAVE_TYPES);
   }
 
-  submitLeave(): Observable<string> {
-    return this.http.get<string>(Apis.SUBMIT_LEAVE);
+  submitLeave(data): Observable<string> {
+    return this.http.post<string>(Apis.SUBMIT_LEAVE, data);
   }
 }
