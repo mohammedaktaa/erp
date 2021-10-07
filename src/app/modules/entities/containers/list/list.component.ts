@@ -28,12 +28,15 @@ export class ListComponent implements OnInit {
       if (params.get('entity')) {
         this.entity = params.get('entity');
         if ([...this.tables].find(_ => _.slug === params.get('entity'))) {
-          this.columns = [...this.tables].find(_ => _.slug === params.get('entity')).columns;
+          const table = [...this.tables].find(_ => _.slug === params.get('entity'));
+          this.columns = table.columns;
           // @ts-ignore
-          this.rowActions = [...this.tables].find(_ => _.slug === params.get('entity'))?.rowActions.
-          forEach(_ => _.link.replace(':entity', params.get('entity')));
-          this.api = [...this.tables].find(_ => _.slug === params.get('entity')).api;
-          this.title = [...this.tables].find(_ => _.slug === params.get('entity')).title;
+          this.rowActions = table.rowActions ? table.rowActions.map(_ => {
+            _.link = _.link.replace(':entity', params.get('entity'));
+            return _;
+          }) : [];
+          this.api = table.api;
+          this.title = table.title;
           this.getData();
         } else {
           this.message = 'There is no entity with this name';
@@ -53,6 +56,9 @@ export class ListComponent implements OnInit {
     })).subscribe(res => {
       this.message = '';
       this.data = res;
+      this.data.sort((a, b) => {
+        return a.id - b.id;
+      });
       this.fetching = false;
     });
   }

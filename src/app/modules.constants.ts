@@ -42,6 +42,12 @@ export const MODULES = [
         external: true,
         link: 'http://localhost:8161'
       },
+      {
+        name: 'System Circuit',
+        slug: 'System Circuit',
+        external: true,
+        link: 'http://localhost:3000/hystrix'
+      },
     ],
     complex: false,
     admin: true,
@@ -171,5 +177,19 @@ export const MODULES = [
     fi_emp: true,
     hr_emp: true,
     hr_man: true,
+  },
+  {
+    slug: 'Workflow Engine',
+    name: 'Workflow Engine',
+    link: 'http://localhost:8855/',
+    complex: false,
+    admin: true,
+    moderator: false,
+    user: false,
+    gen_man: false,
+    fi_man: false,
+    fi_emp: false,
+    hr_emp: false,
+    hr_man: false,
   },
 ];

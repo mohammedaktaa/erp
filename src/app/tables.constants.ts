@@ -295,7 +295,17 @@ export const TABLES: TableStruct[] = [
     rowActions: [
       {
         name: 'View',
-        link: '/entities/:entity/view/'
+        link: '/entities/:entity/view/',
+        actions: [
+          {
+            name: 'Reject',
+            slug: 'reject'
+          },
+          {
+            name: 'Accept',
+            slug: 'accept'
+          },
+        ]
       }
     ],
     api: 'hr_service/leaves/all'

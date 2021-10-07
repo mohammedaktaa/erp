@@ -4,13 +4,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {EntitiesService} from '../../services/entities.service';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.scss']
 })
-export class FormComponent implements OnInit {
+export class ViewComponent implements OnInit {
 
   columns = [];
+  rowActions = [];
   tables = TABLES;
   entity = '';
   title = '';
@@ -29,6 +30,10 @@ export class FormComponent implements OnInit {
         this.columns = table.columns.filter(_ => !_.except);
         this.api = table.api;
         this.title = table.title;
+        this.rowActions = table.rowActions ? table.rowActions.map(_ => {
+          _.link = _.link.replace(':entity', params.get('entity'));
+          return _;
+        }) : [];
         // this.getData();
       }
     });

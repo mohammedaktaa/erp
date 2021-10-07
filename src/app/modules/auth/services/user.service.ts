@@ -21,6 +21,27 @@ interface Role {
   name: string;
 }
 
+interface EmployeeProfile {
+  id: number;
+  user_name: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  dateOfBirth: string;
+  email: string;
+  joiningDate: string;
+  exitDate: string;
+  address: string;
+  contact: string;
+  department: string;
+  designation: string;
+  grade: string;
+  month_salaryList: [];
+  leavesList: [];
+  active: boolean;
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +61,10 @@ export class UserService {
 
   authenticatedUser(): Observable<UserResponse> {
     return this.http.get<UserResponse>(Apis.AUTH_USER);
+  }
+
+  employeeProfile(username: string): Observable<EmployeeProfile> {
+    return this.http.get<EmployeeProfile>(Apis.EMPLOYEE_PROFILE + username);
   }
 
   roles(): Observable<Role> {

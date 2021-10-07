@@ -6,7 +6,7 @@ import {DashboardComponent} from './dashboard.component';
 import {LayoutModule} from '../layout/layout.module';
 import {ModulesListComponent} from './containers/modules-list/modules-list.component';
 import {CreateAccountComponent} from './containers/create-account/create-account.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProfileComponent} from './containers/profile/profile.component';
 
 
@@ -16,7 +16,8 @@ import {ProfileComponent} from './containers/profile/profile.component';
     CommonModule,
     DashboardRoutingModule,
     LayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DashboardModule {

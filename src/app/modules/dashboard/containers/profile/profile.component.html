@@ -1,1 +1,222 @@
-<p>profile works!</p>
+<div>
+  <div class=" md:gap-6">
+    <div class="mt-5 md:mt-0 ">
+      <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="bg-gray-100 px-4 sm:px-6 py-3">
+          <h3 class="text-lg font-medium leading-6 text-gray-800 ">User info</h3>
+        </div>
+        <div class="px-4 py-5 bg-white sm:p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">User Name:</span><span
+              class="w-1/2 text-gray-600">{{user.user_name}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">First Name:</span><span
+              class="w-1/2 text-gray-600">{{user.firstName}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Middle Name:</span><span
+              class="w-1/2 text-gray-600">{{user.middleName}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Last Name:</span><span
+              class="w-1/2 text-gray-600">{{user.lastName}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Date Of Birth:</span><span
+              class="w-1/2 text-gray-600">{{user.dateOfBirth | date:'MM/dd/yy'}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Email:</span><span
+              class="w-1/2 text-gray-600">{{user.email}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Joining Date:</span><span
+              class="w-1/2 text-gray-600">{{user.joiningDate | date:'MM/dd/yy'}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Exit Date:</span><span
+              class="w-1/2 text-gray-600">{{user.exitDate | date:'MM/dd/yy'}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Address:</span><span
+              class="w-1/2 text-gray-600">{{user.address}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Contact:</span><span
+              class="w-1/2 text-gray-600">{{user.contact}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Department:</span><span
+              class="w-1/2 text-gray-600">{{user.department}}</span></div>
+            <div class="text-md"><span class="w-1/2 text-gray-700 font-semibold mr-3">Designation:</span><span
+              class="w-1/2 text-gray-600">{{user.designation}}</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="shadow overflow-hidden sm:rounded-md mt-5">
+        <div class="bg-gray-100 px-4 sm:px-6 py-3">
+          <h3 class="text-lg font-medium leading-6 text-gray-800 ">Salaries</h3>
+        </div>
+        <div class="bg-white">
+          <table class="items-center w-full bg-transparent border-collapse">
+            <thead class="bg-gray-50">
+            <tr>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Year
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Month
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Amount
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Employee Name
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let it of user.month_salaryList;let last = last">
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.year}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.month}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.amount}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.employee_name}}
+              </td>
+            </tr>
+            <tr *ngIf="!user.month_salaryList.length">
+              <td class="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
+                  colspan=4>No Salaries yet.
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="shadow overflow-hidden sm:rounded-md mt-5">
+        <div class="bg-gray-100 px-4 sm:px-6 py-3 flex items-center justify-between">
+          <h3 class="text-lg font-medium leading-6 text-gray-800 ">Leaves</h3>
+          <button (click)="opened = true"
+                  class="py-1 px-3 text-white bg-gray-700 transition text-sm rounded shadow hover:bg-gray-600">Submit
+            Leave
+          </button>
+        </div>
+        <div class="bg-white">
+          <table class="items-center w-full bg-transparent border-collapse">
+            <thead class="bg-gray-50">
+            <tr>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Submit date
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Start date
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                End date
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Employee name
+              </th>
+              <th
+                class="px-6 text-blueGray-500 text-center align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Type
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let it of user.leavesList;let last = last">
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.submit_date | date:'MM/dd/yy'}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.start_date | date:'MM/dd/yy'}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.end_date | date:'MM/dd/yy'}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.employee_name}}
+              </td>
+              <td
+                class="border-t-0 px-6 align-middle text-center border-l-0 border-r-0 text-sm text-blueGray-700 whitespace-nowrap p-4 {{last?'':'border-b'}}">
+                {{it.type}}
+              </td>
+            </tr>
+            <tr *ngIf="!user.leavesList.length">
+              <td class="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
+                  colspan=4>No Leaves yet.
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  [ngClass]="{'opacity-100 translate-y-0 sm:scale-100':opened,'opacity-0 invisible translate-y-4 sm:translate-y-0 sm:scale-95':!opened}"
+  aria-labelledby="modal-title"
+  aria-modal="true" class="fixed z-10 inset-0 overflow-y-auto transition-all duration-300" role="dialog">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div (click)="opened = !opened" aria-hidden="true"
+         class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <span aria-hidden="true" class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+
+    <div
+      class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+
+        <form (submit)="$event.preventDefault()" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-medium text-gray-700" for="start-date">Start Date</label>
+            <input autocomplete="start-date"
+                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                   id="start-date" name="start-date"
+                   [(ngModel)]="form.start_date"
+                   type="date">
+            <small *ngIf="isSubmitted && !form.start_date" class="text-xs text-red-500">Start date is required. </small>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700" for="end-date">End Date</label>
+            <input autocomplete="end-date"
+                   class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                   id="end-date" name="end-date"
+                   [(ngModel)]="form.end_date"
+                   type="date">
+            <small *ngIf="isSubmitted && !form.end_date" class="text-xs text-red-500">End date is required. </small>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700" for="type">Type</label>
+            <select autocomplete="type"
+                    [(ngModel)]="form.type"
+                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    id="type"
+                    name="type">
+              <option value="">[Select Type]</option>
+              <option [value]="type.id" *ngFor="let type of leaveTypes">{{type.name}}</option>
+            </select>
+            <small *ngIf="isSubmitted && !form.type" class="text-xs text-red-500">Type is required. </small>
+          </div>
+        </form>
+      </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button (click)="submitLeave()"
+          class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
+          type="button">
+          Submit
+        </button>
+        <button (click)="opened = false"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                type="button">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

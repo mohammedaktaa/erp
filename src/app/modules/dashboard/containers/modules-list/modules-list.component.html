@@ -1,7 +1,11 @@
 <div *ngIf="!isSubModule" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-  <a *ngFor="let module of modules"
-     class="transition py-6 px-4 text-gray-500 bg-white rounded-lg duration-300 border-2 border-gray-400 transform hover:scale-105 hover:shadow-lg"
-     routerLink="/dashboard/modules/{{module.slug}}">{{module.name}}</a>
+  <div *ngFor="let module of modules"
+       class="    transition py-6 px-4 text-gray-500 bg-white rounded-lg duration-300 border-2 border-gray-400 transform hover:scale-105 hover:shadow-lg">
+    <a *ngIf="!module.link"
+       routerLink="/dashboard/modules/{{module.slug}}">{{module.name}}</a>
+    <a *ngIf="module.link"
+       href="{{module.link}}">{{module.name}}</a>
+  </div>
 </div>
 <div *ngIf="isSubModule" class="">
   <h2 class="text-indigo-500 font-bold text-xl">{{currentModule.name}}</h2>
@@ -10,14 +14,16 @@
       <ul>
         <li *ngFor="let child of currentModule.children" class="flex items-center mb-2">
           <span class="w-2 h-2 inline-block rounded-full bg-blue-600 mr-2"></span>
-          <a class="transition hover:text-gray-600" *ngIf="!child.external" routerLink="/entities/{{child.slug}}">{{child.name}}</a>
-          <a class="transition hover:text-gray-600" *ngIf="child.external" href="{{child.link}}">{{child.name}}</a>
+          <a *ngIf="!child.external" class="transition hover:text-gray-600"
+             routerLink="/entities/{{child.slug}}">{{child.name}}</a>
+          <a *ngIf="child.external" class="transition hover:text-gray-600" href="{{child.link}}">{{child.name}}</a>
         </li>
       </ul>
     </div>
   </div>
   <div *ngIf="currentModule.complex" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="border border-gray-300 rounded bg-white shadow-lg px-4 py-3 w-full" *ngFor="let child of currentModule.children">
+    <div *ngFor="let child of currentModule.children"
+         class="border border-gray-300 rounded bg-white shadow-lg px-4 py-3 w-full">
       <ul>
         <li class="font-bold mb-2">{{child.name}}</li>
         <li *ngFor="let c of child.children" class="flex items-center mb-2 group">

@@ -26,6 +26,11 @@ const routes: Routes = [
         component: FormComponent,
         data: {animationState: 'ENTITIES_EDIT'}
       },
+      {
+        path: 'view/:id',
+        component: FormComponent,
+        data: {animationState: 'ENTITIES_EDIT'}
+      },
     ]
   },
 
