@@ -90,7 +90,7 @@ export const MODULES = [
         name: 'Leaves',
         children: [
           {name: 'Leaves', slug: 'leaves'},
-          {name: 'Leave Approval', slug: 'leave-approval'},
+          // {name: 'Leave Approval', slug: 'leave-approval'},
           {name: 'Leave Types', slug: 'leave-type'},
         ]
       },
@@ -145,7 +145,7 @@ export const MODULES = [
       {
         name: 'Payrolls',
         children: [
-          {name: 'Payrolls', slug: 'payrolls'},
+          {name: 'Payrolls', slug: 'payroll'},
         ]
       },
     ],

@@ -160,7 +160,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'hr_service/departments/all'
+    api: 'hr_service/department/all'
   },
   {
     slug: 'designation',
@@ -179,7 +179,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'hr_service/departments/all'
+    api: 'hr_service/designation/all'
   },
   {
     slug: 'grade',
@@ -294,7 +294,7 @@ export const TABLES: TableStruct[] = [
     api: 'hr_service/leaves/all'
   },
   {
-    slug: 'leaves-type',
+    slug: 'leave-type',
     title: 'Leaves Types',
     columns: [
       {
@@ -310,7 +310,7 @@ export const TABLES: TableStruct[] = [
         except: false
       },
     ],
-    api: 'hr_service/leaves-type/all'
+    api: 'hr_service/leave-type/all'
   },
   {
     slug: 'month-salary',
@@ -648,6 +648,55 @@ export const TABLES: TableStruct[] = [
       },
     ],
     api: 'finance_service/supplier/all'
+  },
+  {
+    slug: 'journal-entry',
+    title: 'Journal Entry',
+    columns: [
+      {
+        name: 'id',
+        title: 'ID',
+        type: 'int',
+        except: true
+      },
+      {
+        name: 'date',
+        title: 'Date',
+        type: 'date',
+        except: false
+      },
+      {
+        name: 'transaction',
+        title: 'Transaction',
+        type: 'text',
+        except: false
+      },
+      {
+        name: 'debit',
+        title: 'Debit',
+        type: 'number',
+        except: false
+      },
+      {
+        name: 'credit',
+        title: 'Credit',
+        type: 'number',
+        except: false
+      },
+      {
+        name: 'contact',
+        title: 'Contact',
+        type: 'text',
+        except: false
+      },
+      {
+        name: 'company',
+        title: 'Company',
+        type: 'text',
+        except: false
+      },
+    ],
+    api: 'finance_service/journal-entry/all'
   },
   {
     slug: 'payroll',
