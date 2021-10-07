@@ -34,12 +34,11 @@ export class SignInComponent implements OnInit {
       this.userService.signIn(username.value, password.value).pipe(catchError(error => {
         throw Error(error);
       })).subscribe((res) => {
+        this.userService.user.next(res);
+        this.userService.setToken(res.accessToken);
         this.router.navigate(['/dashboard/list'], {
           replaceUrl: true,
           skipLocationChange: true
-        }).then(() => {
-          this.userService.user.next(res);
-          this.userService.setToken(res.accessToken);
         });
       }, error => {
         console.log(error);
