@@ -37,7 +37,10 @@ export class SignInComponent implements OnInit {
         this.router.navigate(['/dashboard/list'], {
           replaceUrl: true,
           skipLocationChange: true
-        }).then(() => this.userService.setToken(res.accessToken));
+        }).then(() => {
+          this.userService.user.next(res);
+          this.userService.setToken(res.accessToken);
+        });
       }, error => {
         console.log(error);
       });
