@@ -6,11 +6,12 @@ import {DashboardComponent} from './dashboard.component';
 import {LayoutModule} from '../layout/layout.module';
 import {ModulesListComponent} from './containers/modules-list/modules-list.component';
 import {CreateAccountComponent} from './containers/create-account/create-account.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from '@angular/forms';
+import {ProfileComponent} from './containers/profile/profile.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, ModulesListComponent, CreateAccountComponent],
+  declarations: [DashboardComponent, ModulesListComponent, CreateAccountComponent, ProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

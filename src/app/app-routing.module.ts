@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {GuestGuard} from './modules/core/gurds/guest.guard';
 import {AuthenticatedUserResolver} from './modules/core/resolvers/authenticated-user.resolver';
-import {AuthGuard} from "./modules/core/gurds/auth.guard";
 
 const routes: Routes = [
   {
@@ -29,14 +28,17 @@ const routes: Routes = [
     data: {animationState: 'ENTITIES'}
   },
 
-  {
-    path: '**',
-    redirectTo: 'auth/sign-in'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'auth/sign-in'
+  // }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    // initialNavigation: 'enabled',
+    // preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

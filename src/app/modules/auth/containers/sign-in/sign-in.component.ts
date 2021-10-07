@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserService} from "../../services/user.service";
-import {catchError} from "rxjs/operators";
+import {UserService} from '../../services/user.service';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,6 +27,7 @@ export class SignInComponent implements OnInit {
   }
 
   signIn(): void {
+
     this.form.markAllAsTouched();
     if (this.form.valid) {
       const {username, password} = this.controls;

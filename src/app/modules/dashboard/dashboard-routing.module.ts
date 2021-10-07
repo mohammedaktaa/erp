@@ -4,6 +4,7 @@ import {DashboardComponent} from './dashboard.component';
 import {ModulesListComponent} from './containers/modules-list/modules-list.component';
 import {CreateAccountComponent} from './containers/create-account/create-account.component';
 import {AuthGuard} from '../core/gurds/auth.guard';
+import {ProfileComponent} from "./containers/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
         component: CreateAccountComponent
       },
       {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
         path: 'list',
         component: ModulesListComponent
       },
@@ -29,10 +34,10 @@ const routes: Routes = [
       },
     ]
   },
-  {
-    path: '**',
-    redirectTo: 'auth/sign-in'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: 'auth/sign-in'
+  // }
 
 ];
 
