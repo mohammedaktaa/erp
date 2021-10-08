@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {TABLES} from '../../../../tables.constants';
 import {EntitiesService} from '../../services/entities.service';
 import {catchError} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -12,34 +13,39 @@ import {catchError} from 'rxjs/operators';
 export class ListComponent implements OnInit {
   fetching = false;
   columns = [];
+  additionButtons = [];
   rowActions = [];
-  data = [
-    {
-      id: 1,
-      submit_date: '2021-09-29T19:31:01.000+00:00',
-      start_date: '2020-01-05T00:00:00.000+00:00',
-      end_date: '2020-01-07T00:00:00.000+00:00',
-      employee_name: 'Motaz',
-      approval: 'hr_manager',
-      type: 'study'
-    },
-    {
-      id: 7,
-      submit_date: '2020-01-01T00:00:00.000+00:00',
-      start_date: '2020-01-05T00:00:00.000+00:00',
-      end_date: '2020-01-07T00:00:00.000+00:00',
-      employee_name: 'Motaz',
-      approval: 'hr_manager',
-      type: 'sick'
-    }
-  ];
+  data = [];
   tables = TABLES;
   entity = '';
+  opened = false;
+  isSubmitted = false;
   title = '';
   message = '';
+  apiButton = '';
+  form = {
+    year: '',
+    month: ''
+  };
+  months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  today = new Date();
+  isErrorRes = false;
   private api = '';
 
-  constructor(private route: ActivatedRoute, private entitiesService: EntitiesService) {
+  constructor(private route: ActivatedRoute, private entitiesService: EntitiesService, private http: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -49,6 +55,7 @@ export class ListComponent implements OnInit {
         if ([...this.tables].find(_ => _.slug === params.get('entity'))) {
           const table = [...this.tables].find(_ => _.slug === params.get('entity'));
           this.columns = table.columns;
+          this.additionButtons = table.additionButtons ? table.additionButtons : [];
           // @ts-ignore
           this.rowActions = table.rowActions ? table.rowActions.map(_ => {
             _.link = _.link.replace(':entity', params.get('entity'));
@@ -70,9 +77,11 @@ export class ListComponent implements OnInit {
     this.entitiesService.getEntityData(this.api).pipe(catchError(err => {
       this.fetching = false;
       this.message = err.message;
+      this.isErrorRes = true;
       setTimeout(() => this.message = '', 5000);
       throw Error(err.message);
     })).subscribe(res => {
+      this.isErrorRes = false;
       this.message = '';
       this.data = res;
       this.data.sort((a, b) => {
@@ -80,6 +89,43 @@ export class ListComponent implements OnInit {
       });
       this.fetching = false;
     });
+  }
+
+  takeAction(): void {
+    this.isSubmitted = true;
+    if (Object.values(this.form).every(_ => !!_)) {
+      this.http.post(this.apiButton, this.form).subscribe((res: string) => {
+        this.form = {
+          year: '',
+          month: ''
+        };
+        this.isErrorRes = false;
+        this.opened = false;
+        this.message = res;
+        this.getData();
+        setTimeout(() => this.message = '', 5000);
+      }, error => {
+        this.message = error.message;
+        this.isErrorRes = true;
+        setTimeout(() => this.message = '', 5000);
+      });
+    }
+  }
+
+  openModalAndSetApi(api): void {
+    this.apiButton = api;
+    this.opened = true;
+  }
+
+  range(start: number, end?: number): number[] {
+    if (!end) {
+      return [start];
+    }
+    const data: number[] = [];
+    for (let i = start; i <= end; i++) {
+      data.push(i);
+    }
+    return data;
   }
 
 }

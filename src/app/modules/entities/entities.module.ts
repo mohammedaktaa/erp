@@ -7,6 +7,7 @@ import {LayoutModule} from '../layout/layout.module';
 import {FormComponent} from './containers/form/form.component';
 import {ListComponent} from './containers/list/list.component';
 import {ViewComponent} from './containers/view/view.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {ViewComponent} from './containers/view/view.component';
   imports: [
     CommonModule,
     EntitiesRoutingModule,
-    LayoutModule
+    LayoutModule,
+    FormsModule
   ]
 })
 export class EntitiesModule {

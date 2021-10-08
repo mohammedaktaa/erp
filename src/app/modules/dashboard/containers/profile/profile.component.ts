@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../auth/services/user.service';
 import {LeavesService, LeaveType} from '../../services/leaves.service';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-profile',
@@ -86,7 +87,11 @@ export class ProfileComponent implements OnInit {
   submitLeave(): void {
     this.isSubmitted = true;
     if (this.form.type && this.form.end_date && this.form.start_date) {
-      this.leavesService.submitLeave(this.form).subscribe(res => {
+      this.leavesService.submitLeave({
+        ...this.form,
+        username: this.user.user_name,
+        start_date: formatDate(new Date(), 'y-MM-d', 'en-US')
+      }).subscribe(res => {
         this.isSubmitted = false;
         this.form = {
           start_date: '',

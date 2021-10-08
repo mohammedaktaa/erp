@@ -2,6 +2,7 @@ interface TableStruct {
   slug: string;
   title: string;
   columns: Column[];
+  additionButtons?: any[];
   rowActions?: any[];
   api: string;
 }
@@ -758,6 +759,12 @@ export const TABLES: TableStruct[] = [
         except: false
       },
 
+    ],
+    additionButtons: [
+      {
+        name: 'Request Payroll',
+        api: 'finance_service/payroll/request'
+      }
     ],
     api: 'finance_service/payroll/all'
   },

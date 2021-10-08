@@ -10,20 +10,7 @@ import {LeavesService} from '../../../dashboard/services/leaves.service';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
-  i = {
-    id: 20,
-    submit_date: null,
-    approval_date: null,
-    start_date: '2020-01-05T00:00:00.000+00:00',
-    end_date: '2020-01-07T00:00:00.000+00:00',
-    approval: 'hr_manager',
-    type: 'travel',
-    status: 'Pending',
-    employee: 7
-  };
-  item = Object.entries(this.i).map(([key, value]) => {
-    return {key: this.getEnumValueLabel(key), value, isDate: Date.parse(value)};
-  });
+  item = [];
   columns = [];
   rowActions = [];
   tables = TABLES;
@@ -74,7 +61,6 @@ export class ViewComponent implements OnInit {
   }
 
   takeAction(action): void {
-    console.log(this.leavesService)
     if (action === 'accept') {
       this.leavesService.acceptLeave(this.id).subscribe(res => {
         this.message = res;
