@@ -103,7 +103,7 @@
                 {{it.employee_name}}
               </td>
             </tr>
-            <tr *ngIf="!user.month_salaryList.length">
+            <tr *ngIf="!user.month_salaryList || !user.month_salaryList.length">
               <td class="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
                   colspan=4>No Salaries yet.
               </td>
