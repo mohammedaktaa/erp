@@ -40,7 +40,7 @@ export class ViewComponent implements OnInit {
           return _;
         }) : [];
         if (this.id) {
-          this.entitiesService.getEntityRow(this.api.substr(0, this.api.length - 3) + '/get/' + this.id).subscribe(res => {
+          this.entitiesService.getEntityRow(this.api.substr(0, this.api.length - 3) + 'get/' + this.id).subscribe(res => {
             this.item = Object.entries(res).map(([key, value]) => {
               return {key: this.getEnumValueLabel(key), value, isDate: Date.parse(value)};
             });
