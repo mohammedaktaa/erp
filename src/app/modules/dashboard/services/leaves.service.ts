@@ -25,11 +25,11 @@ export class LeavesService {
   }
 
   rejectLeave(id): Observable<any> {
-    return this.http.get(Apis.REJECT_LEAVE + id);
+    return this.http.get(Apis.REJECT_LEAVE + id, {responseType: 'text'});
   }
 
   acceptLeave(id): Observable<any> {
-    return this.http.get(Apis.ACCEPT_LEAVE + id);
+    return this.http.get(Apis.ACCEPT_LEAVE + id, {responseType: 'text'});
   }
 
 
