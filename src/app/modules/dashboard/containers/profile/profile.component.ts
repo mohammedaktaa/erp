@@ -49,6 +49,7 @@ export class ProfileComponent implements OnInit {
         username: this.user.user_name,
         submit_date: formatDate(new Date(), 'y-MM-dd', 'en-US')
       }).subscribe(res => {
+        console.log(res);
         this.isSubmitted = false;
         this.form = {
           start_date: '',
@@ -61,6 +62,7 @@ export class ProfileComponent implements OnInit {
         this.getProfile();
         setTimeout(() => this.message = '', 5000);
       }, error => {
+        console.log(error);
         this.message = error.message;
         this.isErrorRes = true;
         setTimeout(() => this.message = '', 5000);
