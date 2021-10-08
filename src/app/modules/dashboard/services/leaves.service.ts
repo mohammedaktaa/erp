@@ -21,7 +21,7 @@ export class LeavesService {
   }
 
   submitLeave(data): Observable<any> {
-    return this.http.post(Apis.SUBMIT_LEAVE, data);
+    return this.http.post(Apis.SUBMIT_LEAVE, data, {responseType: 'text'});
   }
 
   rejectLeave(id): Observable<any> {
