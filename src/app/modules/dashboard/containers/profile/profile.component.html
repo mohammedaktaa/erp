@@ -169,7 +169,7 @@
                 {{it.type}}
               </td>
             </tr>
-            <tr *ngIf="!user.leavesList.length">
+            <tr *ngIf="!user.leavesList || !user.leavesList.length">
               <td class="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
                   colspan=4>No Leaves yet.
               </td>
