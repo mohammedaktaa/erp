@@ -65,8 +65,10 @@ export class ViewComponent implements OnInit {
       this.leavesService.acceptLeave(this.id).subscribe(res => {
         this.message = res;
         this.isErrorRes = false;
-        setTimeout(() => this.message = '', 5000);
-        this.router.navigate(['/entities/' + this.entity]);
+        setTimeout(() => {
+          this.message = '';
+          this.router.navigate(['/entities/' + this.entity]);
+        }, 2000);
       }, error => {
         this.message = error.message;
         this.isErrorRes = true;
@@ -76,8 +78,10 @@ export class ViewComponent implements OnInit {
       this.leavesService.rejectLeave(this.id).subscribe(res => {
         this.message = res;
         this.isErrorRes = false;
-        setTimeout(() => this.message = '', 5000);
-        this.router.navigate(['/entities/' + this.entity]);
+        setTimeout(() => {
+          this.message = '';
+          this.router.navigate(['/entities/' + this.entity]);
+        }, 2000);
       }, error => {
         this.message = error.message;
         this.isErrorRes = true;
