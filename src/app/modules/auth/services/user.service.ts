@@ -21,7 +21,7 @@ interface Role {
   name: string;
 }
 
-interface EmployeeProfile {
+export interface EmployeeProfile {
   id: number;
   user_name: string;
   firstName: string;
