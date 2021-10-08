@@ -42,7 +42,8 @@ export class ViewComponent implements OnInit {
         if (this.id) {
           this.entitiesService.getEntityRow(this.api.substr(0, this.api.length - 3) + 'get/' + this.id).subscribe(res => {
             this.item = Object.entries(res).map(([key, value]) => {
-              return {key: this.getEnumValueLabel(key), value, isDate: Date.parse(value)};
+              // @ts-ignore
+              return {key: this.getEnumValueLabel(key), value, isDate: isNaN(value) ? value : Date.parse(value)};
             });
           });
         }
