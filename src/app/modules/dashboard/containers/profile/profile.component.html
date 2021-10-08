@@ -1,8 +1,8 @@
 <div *ngIf="message"
-     class="fixed top-3 right-3 alert flex flex-row items-center bg-{{isErrorRes?'red':'green'}}-200 px-5 py-3 rounded border-b-2 border-{{isErrorRes?'red':'green'}}-300">
+     class="fixed top-3 right-3 alert flex flex-row items-center bg-{{isErrorRes?'red':'blue'}}-200 px-5 py-3 rounded border-b-2 border-{{isErrorRes?'red':'blue'}}-300">
   <div
-    class="alert-icon flex items-center bg-{{isErrorRes?'red':'green'}}-100 border-2 border-{{isErrorRes?'red':'green'}}-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
-				<span class="text-{{isErrorRes?'red':'green'}}-500">
+    class="alert-icon flex items-center bg-{{isErrorRes?'red':'blue'}}-100 border-2 border-{{isErrorRes?'red':'blue'}}-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+				<span class="text-{{isErrorRes?'red':'blue'}}-500">
 					<svg class="h-6 w-6"
                fill="currentColor"
                viewBox="0 0 20 20">
@@ -13,10 +13,10 @@
 				</span>
   </div>
   <div class="alert-content ml-4">
-    <div class="alert-title font-semibold text-lg text-{{isErrorRes?'red':'green'}}-800">
+    <div class="alert-title font-semibold text-lg text-{{isErrorRes?'red':'blue'}}-800">
       Error
     </div>
-    <div class="alert-description text-sm text-{{isErrorRes?'red':'green'}}-600">
+    <div class="alert-description text-sm text-{{isErrorRes?'red':'blue'}}-600">
       {{message}}
     </div>
   </div>

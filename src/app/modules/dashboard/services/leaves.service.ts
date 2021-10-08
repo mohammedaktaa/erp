@@ -20,16 +20,16 @@ export class LeavesService {
     return this.http.get<LeaveType[]>(Apis.LEAVE_TYPES);
   }
 
-  submitLeave(data): Observable<string> {
-    return this.http.post<string>(Apis.SUBMIT_LEAVE, data);
+  submitLeave(data): Observable<any> {
+    return this.http.post(Apis.SUBMIT_LEAVE, data);
   }
 
-  rejectLeave(id): Observable<string> {
-    return this.http.get<string>(Apis.REJECT_LEAVE + id);
+  rejectLeave(id): Observable<any> {
+    return this.http.get(Apis.REJECT_LEAVE + id);
   }
 
-  acceptLeave(id): Observable<string> {
-    return this.http.get<string>(Apis.ACCEPT_LEAVE + id);
+  acceptLeave(id): Observable<any> {
+    return this.http.get(Apis.ACCEPT_LEAVE + id);
   }
 
 
