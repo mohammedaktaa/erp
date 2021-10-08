@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
       this.leavesService.submitLeave({
         ...this.form,
         username: this.user.user_name,
-        submit_date: formatDate(new Date(), 'y-MM-d', 'en-US')
+        submit_date: formatDate(new Date(), 'y-MM-dd', 'en-US')
       }).subscribe(res => {
         this.isSubmitted = false;
         this.form = {

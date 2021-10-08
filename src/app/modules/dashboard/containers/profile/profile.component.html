@@ -183,6 +183,7 @@
 </div>
 
 <div
+  *ngIf="user.user_name"
   [ngClass]="{'opacity-100 translate-y-0 sm:scale-100':opened,'opacity-0 invisible translate-y-4 sm:translate-y-0 sm:scale-95':!opened}"
   aria-labelledby="modal-title"
   aria-modal="true" class="fixed z-10 inset-0 overflow-y-auto transition-all duration-300" role="dialog">
