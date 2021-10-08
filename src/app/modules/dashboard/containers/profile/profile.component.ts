@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
         username: this.user.user_name,
         submit_date: formatDate(new Date(), 'y-MM-dd', 'en-US')
       }).pipe(catchError(error => {
-        throw Error(error.message);
+        throw Error(error);
       })).subscribe(res => {
         console.log(res);
         this.isSubmitted = false;
@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
         this.getProfile();
         setTimeout(() => this.message = '', 5000);
       }, error => {
-        console.log(error);
+        console.log({error});
         this.message = error.message;
         this.isErrorRes = true;
         setTimeout(() => this.message = '', 5000);

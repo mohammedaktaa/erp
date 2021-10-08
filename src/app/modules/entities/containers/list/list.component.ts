@@ -95,7 +95,7 @@ export class ListComponent implements OnInit {
     this.isSubmitted = true;
     if (Object.values(this.form).every(_ => !!_)) {
       this.http.post(this.apiButton, this.form).pipe(catchError(error => {
-        throw Error(error.message);
+        throw Error(error);
       })).subscribe((res: string) => {
         this.form = {
           year: '',
