@@ -13,7 +13,7 @@
 				</span>
   </div>
   <div class="alert-content ml-4">
-    <div class="alert-title font-semibold text-lg text-{{isErrorRes?'red':'green'}}-800">
+    <div *ngIf="isErrorRes" class="alert-title font-semibold text-lg text-{{isErrorRes?'red':'green'}}-800">
       Error
     </div>
     <div class="alert-description text-sm text-{{isErrorRes?'red':'green'}}-600">
