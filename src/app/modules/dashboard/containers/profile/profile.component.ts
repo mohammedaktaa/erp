@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EmployeeProfile, UserService} from '../../../auth/services/user.service';
 import {LeavesService, LeaveType} from '../../services/leaves.service';
 import {formatDate} from '@angular/common';
+import {catchError} from "rxjs/operators";
 
 @Component({
   selector: 'app-profile',
@@ -48,7 +49,9 @@ export class ProfileComponent implements OnInit {
         ...this.form,
         username: this.user.user_name,
         submit_date: formatDate(new Date(), 'y-MM-dd', 'en-US')
-      }).subscribe(res => {
+      }).pipe(catchError(error => {
+        throw Error(error.message);
+      })).subscribe(res => {
         console.log(res);
         this.isSubmitted = false;
         this.form = {
