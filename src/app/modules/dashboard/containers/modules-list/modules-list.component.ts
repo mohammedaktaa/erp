@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MODULES} from '../../../../modules.constants';
-import {ActivatedRoute} from "@angular/router";
-import {UserService} from "../../../auth/services/user.service";
+import {ActivatedRoute} from '@angular/router';
+import {UserService} from '../../../auth/services/user.service';
 
 @Component({
   selector: 'app-modules-list',
@@ -26,7 +26,7 @@ export class ModulesListComponent implements OnInit {
     this.userService.user.asObservable().subscribe(user => {
       if (user) {
         // @ts-ignore
-        const roles = user.roles.map(_ => _.name.replace('ROLE_', '').toLowerCase());
+        const roles = user.roles.length ? user.roles.map(_ => _.name.replace('ROLE_', '').toLowerCase()) : [];
         roles.forEach(role => {
           this.modules = this.modules.filter(_ => _[role]);
         });
