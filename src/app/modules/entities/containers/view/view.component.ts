@@ -44,7 +44,7 @@ export class ViewComponent implements OnInit {
           this.entitiesService.getEntityRow(this.api.substr(0, this.api.length - 3) + 'get/' + this.id).subscribe(res => {
             this.item = Object.entries(res).map(([key, value]) => {
               // @ts-ignore
-              return {key: this.getEnumValueLabel(key), value, isDate: isNumeric(value) ? value : Date.parse(value)};
+              return {key: this.getEnumValueLabel(key), value, isDate: false};
             });
           });
         }
