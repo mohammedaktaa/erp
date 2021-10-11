@@ -106,12 +106,13 @@ export class ListComponent implements OnInit {
         this.message = res;
         this.getData();
         this.isSubmitted = false;
-        setTimeout(() => this.message = '', 7000);
+        setTimeout(() => this.message = '', 10000);
+        console.log(this.message);
       }, error => {
         this.message = error.message;
         this.isSubmitted = false;
         this.isErrorRes = true;
-        setTimeout(() => this.message = '', 5000);
+        setTimeout(() => this.message = '', 10000);
       });
     }
   }
